@@ -1,0 +1,66 @@
+<div class="card" style="width: 22rem; height: 22rem; margin-right: 1rem;margin-bottom: 1rem;">
+  <div class="card-body">
+    <form class="form-floating" [formGroup]="form">
+      <div class="mb-3" style="min-height: 6rem;">
+        <div class="toast-header justify-content-between">
+          <label for="country" class="form-label">Country</label>
+          <button (click)="closeForm()" type="button" class="btn-close p-0" [disabled]="form.disabled"></button>
+        </div>
+        <input
+          appInputValidator
+          formControlName="country"
+          type="text"
+          class="form-control"
+          id="country"
+          list="countries"
+          [ngClass]="{'is-invalid': form.get('country')?.invalid}"
+        >
+        <div class="form-text text-danger">
+          <span *ngIf="form.get('country')?.errors?.['required']"
+          >Country is required</span>
+          <span *ngIf="!form.get('country')?.errors?.['required'] && form.get('country')?.errors?.['notInclude']"
+          >Please provide a correct Country</span>
+        </div>
+        <datalist id="countries">
+          <option *ngFor="let country of countries" value="{{country}}">{{ country }}</option>
+        </datalist>
+      </div>
+      <div class="mb-3" style="min-height: 6rem;">
+        <label for="username" class="form-label">Username</label>
+        <input
+          appInputValidator
+          formControlName="username"
+          type="text"
+          class="form-control"
+          id="username"
+          [ngClass]="{'is-invalid': form.get('username')?.invalid}"
+        >
+        <div class="form-text text-danger">
+          <span *ngIf="form.get('username')?.errors?.['required']"
+          >Username is required</span>
+          <span *ngIf="!form.get('username')?.errors?.['required'] && form.get('username')?.errors?.['notAvailable']"
+          >Please provide a correct Username</span>
+        </div>
+      </div>
+      <div class="mb-3" style="min-height: 6rem;">
+        <label for="birthday" class="form-label">Birthday</label>
+        <input
+          appInputValidator
+          formControlName="birthday"
+          type="date"
+          class="form-control"
+          id="birthday"
+          [ngClass]="{'is-invalid': form.get('birthday')?.invalid}"
+        >
+        <div class="form-text text-danger">
+          <span *ngIf="form.get('birthday')?.errors?.['required']"
+          >Birthday is required</span>
+          <span *ngIf="!form.get('birthday')?.errors?.['required'] && form.get('birthday')?.errors?.['invalidDate']"
+          >Please provide a correct Birthday</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
