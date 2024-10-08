@@ -2,8 +2,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {Country} from "../../enum/country";
 import {NgClass, NgForOf, NgIf, NgSwitch} from "@angular/common";
-import {UserService} from "../../services/user.service";
-import {SpinnerService} from "../../services/spinner.service";
 import {InputValidatorDirective} from "../../directives/input-validator.directive";
 
 @Component({

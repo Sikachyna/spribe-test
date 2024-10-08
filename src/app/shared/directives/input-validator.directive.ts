@@ -1,7 +1,7 @@
 import {Directive, ElementRef, HostListener} from '@angular/core';
 import {FormControl, NgControl} from '@angular/forms';
 import {Country} from "../enum/country";
-import {debounceTime, filter, of, Subscription, switchMap, tap} from "rxjs";
+import {debounceTime, filter, Subscription, switchMap, tap} from "rxjs";
 import {UserService} from "../services/user.service";
 import {SpinnerService} from "../services/spinner.service";
 
